@@ -12,7 +12,7 @@ export interface opt{
   styleUrls: ['./page-controls.component.scss']
 })
 export class PageControlsComponent implements OnInit,OnChanges {
- @Input() controls:opt;
+  @Input() controls:opt;
   @Output() pageChange = new EventEmitter<any>();
   totalPage:any = 0;
   constructor() { }
