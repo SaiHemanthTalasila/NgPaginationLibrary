@@ -39,5 +39,8 @@
       </tbody>
     </table>
   </div>
-<pagination-controls *ngIf="term == ''" (pageChange)="currentPage = $event" [controls]="{currentPage: currentPage,itemsPerPage: itemsPerPage,dataLength: tableArray.length  }"></pagination-controls>
+  <div class="float-right">
+    <pagination-controls *ngIf="term == ''"  (pageChange)="currentPage = $event" [controls]="{currentPage: currentPage,itemsPerPage: itemsPerPage,dataLength: tableArray.length,pageTabs:  pageTabs }"></pagination-controls>
+  </div>
+
 </div>

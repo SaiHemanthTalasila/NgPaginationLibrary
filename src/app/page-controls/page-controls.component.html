@@ -1,3 +1,20 @@
-<button  class="pbtn pagination-primary" (click)="prevPage()"> < </button>
-<button  class="pbtn pagination-light">{{controls.currentPage}} of {{totalPage}}</button>
-<button  class="pbtn pagination-primary" (click)="nextPage()"> > </button>
+<ng-container *ngIf="controls.pageTabs == false">
+    <button class="pbtn pagination-primary" (click)="prevPage()"> < </button>
+            <button class="pbtn pagination-light">{{controls.currentPage}} of {{totalPage}}</button>
+            <button class="pbtn pagination-primary" (click)="nextPage()"> > </button>
+</ng-container>
+
+
+<ng-container *ngIf="controls.pageTabs == true">
+    <nav style="width: fit-content;" aria-label="Page navigation example">
+        <ul class="pagination-custom">
+        
+            <li class="page-item"><a class="page-link-custom" (click)="prevPage()">Previous</a></li>
+            <ng-container *ngFor="let item of pageTabArray;">
+                <li *ngIf="item.isEnable == true;" class="page-item"><a (click)="navigateTo(item.pageNumber)" class="page-link-custom"
+                    [ngClass]="{ 'active': item.pageNumber ==  controls.currentPage }">{{item.pageNumber}}</a></li>
+            </ng-container>
+            <li class="page-item"><a class="page-link-custom" (click)="nextPage()">Next</a></li>
+        </ul>
+    </nav>
+</ng-container>

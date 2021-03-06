@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   totalPage:any = 0;
   term:any = "";
   prop:any = "";
+  pageTabs:boolean = true;
   constructor(private http: HttpClient){
 
   } 
